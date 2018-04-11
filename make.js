@@ -23,9 +23,9 @@ function make() {
 }
 */
 
-function make(...rest) {
+function make(...all) {
     return (...more) => {
-        if (more[0] instanceof Function) return rest.reduce(more[0]);
-        return make(...rest, ...more);
+        if (more[0] instanceof Function) return all.reduce(more[0]);
+        return make(...all, ...more);
     };
 }
